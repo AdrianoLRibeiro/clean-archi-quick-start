@@ -1,0 +1,31 @@
+version: '3'
+volumes:
+  user-data:
+services:
+  db_user:
+    image: mysql:8.0
+    restart: always
+
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: user_db
+      MYSQL_USER: user_user
+      MYSQL_PASSWORD: user_pwd
+    ports:
+      - "3308:3306"
+# Descomentar essa parte para rodar a aplicação e o banco no docker
+#
+#  app:
+#    image: openjdk:8
+#    restart: always
+#    working_dir: /app
+#    volumes:
+#    - ../application/build/libs:/app
+#    - ~/.m2:/root/.m2
+#    expose:
+#    - "8080"
+#    command:  java -jar users-application-1.0.0-REALEASE.jar
+#    depends_on:
+#    - db_user
+#    ports:
+#    - "8080:8080"
