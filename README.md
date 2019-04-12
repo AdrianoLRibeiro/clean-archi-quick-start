@@ -4,7 +4,7 @@ Esse projeto é a estrutura básica de uma aplicação Springboot usando Clean A
 
 ------
 
-###Ferramentas utilizadas
+### Ferramentas utilizadas
     -   Java 8
     -   Springboot
     -   Lombok
@@ -18,7 +18,7 @@ Esse projeto é a estrutura básica de uma aplicação Springboot usando Clean A
 
 ------
 
-###Instruções
+### Instruções
 Para executar a aplicação, é necessário ter um docker-compose rodando na máquina.
     
 Rode o build:
@@ -36,7 +36,7 @@ Acessando esse recurso é possível ver os endpoints disponibilizados para imple
 
 ------
 
-###Arquitetura
+### Arquitetura
 
 A aplicação foi desenvolvida usando os princípios de Clean Architecture de Robert Martin como pode ser visto no 
 site 
