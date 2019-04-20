@@ -14,7 +14,7 @@ public class User {
 
     private String name;
 
-    private String adress;
+    private String address;
 
     @Builder.Default
     private UserStatus status = UserStatus.ACTIVE;

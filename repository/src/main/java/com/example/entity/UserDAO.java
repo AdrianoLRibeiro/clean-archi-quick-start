@@ -34,7 +34,7 @@ public class UserDAO {
 
     private String name;
 
-    private String adress;
+    private String address;
 
     @Builder.Default
     @Enumerated(EnumType.STRING)
@@ -44,7 +44,7 @@ public class UserDAO {
         return User.builder()
                 .id(id.toString())
                 .name(name)
-                .adress(adress)
+                .address(address)
                 .build();
     }
 
@@ -52,7 +52,7 @@ public class UserDAO {
         return builder()
                 .id(isEmpty(user.getId()) ? null : valueOf(user.getId()))
                 .name(user.getName())
-                .adress(user.getAdress())
+                .address(user.getAddress())
                 .status(UserStatusDAO.fromEntity(user.getStatus()))
                 .build();
     }
