@@ -1,8 +1,8 @@
 package com.example.impl;
 
 import com.example.entities.User;
-import com.example.entity.UserDB;
-import com.example.enums.UserStatusDB;
+import com.example.entity.UserDAO;
+import com.example.enums.UserStatusDAO;
 import com.example.repository.UserDataAccess;
 import com.example.repository.UserRepository;
 import org.springframework.stereotype.Component;
@@ -23,15 +23,15 @@ public class UserDataAccessImpl implements UserDataAccess {
     @Override
     public User save(User user) {
 
-        UserDB db = UserDB.fromEntity(user);
+        UserDAO db = UserDAO.fromEntity(user);
         return userRepository.save(db).toEntity();
     }
 
     @Override
     public Set<User> getActiveUsers() {
-        return userRepository.findByStatus(UserStatusDB.ACTIVE)
+        return userRepository.findByStatus(UserStatusDAO.ACTIVE)
                 .stream()
-                .map(UserDB::toEntity)
+                .map(UserDAO::toEntity)
                 .collect(Collectors.toSet());
     }
 
@@ -39,6 +39,6 @@ public class UserDataAccessImpl implements UserDataAccess {
     public Optional<User> findById(String id) {
         return userRepository
                 .findById(Long.valueOf(id))
-                .map(UserDB::toEntity);
+                .map(UserDAO::toEntity);
     }
 }

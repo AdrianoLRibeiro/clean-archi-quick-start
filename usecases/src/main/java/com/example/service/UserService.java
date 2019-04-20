@@ -33,7 +33,7 @@ public class UserService {
                 .findById(user.getId())
                 .orElseThrow(() -> new RuntimeException("user not found with id: " + user.getId()));
 
-        found.setAdress(user.getAdress());
+        found.setAddress(user.getAddress());
         found.setName(user.getName());
 
         return userDataAccess.save(found);

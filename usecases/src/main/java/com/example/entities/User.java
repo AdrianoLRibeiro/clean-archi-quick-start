@@ -1,25 +1,23 @@
 package com.example.entities;
 
 import lombok.Builder;
+import lombok.Data;
 import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
 import org.springframework.util.StringUtils;
 
 @Builder
-@ToString
+@Data
 @EqualsAndHashCode(of="id")
 public class User {
 
-    @Getter private String id;
+    private String id;
 
-    @Getter @Setter private String name;
+    private String name;
 
-    @Getter @Setter private String adress;
+    private String address;
 
     @Builder.Default
-    @Getter private UserStatus status = UserStatus.ACTIVE;
+    private UserStatus status = UserStatus.ACTIVE;
 
     public boolean hasId() {
         return !hasNotId();

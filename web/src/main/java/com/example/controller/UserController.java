@@ -1,4 +1,4 @@
-package com.example;
+package com.example.controller;
 
 import com.example.dto.UserDTO;
 import com.example.dto.UserListDTO;
@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.validation.Valid;
 import java.util.Set;
 
 @RestController
@@ -28,7 +29,7 @@ public class UserController {
     }
 
     @PostMapping
-    public ResponseEntity<?> save(@RequestBody UserDTO examDTO) {
+    public ResponseEntity<?> save(@Valid @RequestBody UserDTO examDTO) {
         return userService.save(examDTO.toEntity()) == null
                 ? ResponseEntity.status(500).build()
                 : ResponseEntity.status(201).build();
@@ -36,7 +37,7 @@ public class UserController {
 
     @PutMapping
     public @ResponseBody
-    ResponseEntity<UserDTO> update(@RequestBody UserDTO userDTO) {
+    ResponseEntity<UserDTO> update(@Valid @RequestBody UserDTO userDTO) {
         User result = userService.update(userDTO.toEntity());
         return ResponseEntity.ok(UserDTO.fromEntity(result));
     }

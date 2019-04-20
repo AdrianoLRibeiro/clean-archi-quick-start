@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.validator.constraints.NotEmpty;
 
 import java.util.Set;
 
@@ -16,8 +17,11 @@ import static java.util.stream.Collectors.toSet;
 @AllArgsConstructor
 public class UserDTO {
 
+    @NotEmpty(message = "name field can't be empty")
     private String name;
-    private String adress;
+
+    @NotEmpty(message = "address field can't be empty")
+    private String address;
 
     public static Set<UserDTO> fromEntity(Set<User> users) {
         return users
@@ -29,14 +33,14 @@ public class UserDTO {
     public static UserDTO fromEntity(User user) {
         return builder()
                 .name(user.getName())
-                .adress(user.getAdress())
+                .address(user.getAddress())
                 .build();
     }
 
     public User toEntity() {
         return User.builder()
                 .name(name)
-                .adress(adress)
+                .address(address)
                 .build();
     }
 }
