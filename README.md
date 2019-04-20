@@ -20,6 +20,8 @@ Esse projeto é a estrutura básica de uma aplicação Springboot usando Clean A
 
 ### Instruções
 Para executar a aplicação, é necessário ter um docker-compose rodando na máquina.
+
+Para utilizar esse projeto o plugin lombok deverá estar habilitado na IDE.
     
 Rode o build:
 
